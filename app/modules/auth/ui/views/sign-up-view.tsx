@@ -21,6 +21,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { FaGit, FaGithub, FaGoogle } from 'react-icons/fa';
 
 const formSchema = z
   .object({
@@ -35,9 +36,9 @@ const formSchema = z
   });
 
 export const SignupView = () => {
-  const router = useRouter();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -53,6 +54,7 @@ export const SignupView = () => {
         name: data.name,
         email: data.email,
         password: data.password,
+        callbackURL: '/',
       },
       {
         onSuccess: () => {
@@ -64,6 +66,14 @@ export const SignupView = () => {
           setError(error.message);
         },
       }
+    );
+  };
+
+  const onSocial = (provider: 'google' | 'github') => {
+    setLoading(true);
+    authClient.signIn.social(
+      { provider, callbackURL: '/' },
+      { onError: ({ error }) => setError(error.message) }
     );
   };
 
@@ -169,14 +179,7 @@ export const SignupView = () => {
                 )}
 
                 <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? (
-                    <div className="flex items-center gap-2">
-                      <div className="h-4 w-4 rounded-full border-2 border-t-transparent animate-spin" />
-                      Loading...
-                    </div>
-                  ) : (
-                    'Sign Up'
-                  )}
+                  Sign Up
                 </Button>
 
                 <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
@@ -189,18 +192,21 @@ export const SignupView = () => {
                   <Button
                     variant="outline"
                     type="button"
-                    className="w-full"
+                    className="cursor-pointer w-full"
                     disabled={loading}
+                    onClick={() => onSocial('google')}
                   >
-                    Google
+                    <FaGoogle />
                   </Button>
+
                   <Button
                     variant="outline"
                     type="button"
-                    className="w-full"
+                    className="cursor-pointer w-full"
                     disabled={loading}
+                    onClick={() => onSocial('github')}
                   >
-                    Github
+                    <FaGithub />
                   </Button>
                 </div>
 
