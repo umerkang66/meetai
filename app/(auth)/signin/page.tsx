@@ -2,7 +2,7 @@ import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
-import { SigninView } from '@/app/modules/auth/ui/views/sign-in-view';
+import { SigninView } from '@/modules/auth/ui/views/sign-in-view';
 
 const Signin = async () => {
   const session = await auth.api.getSession({
