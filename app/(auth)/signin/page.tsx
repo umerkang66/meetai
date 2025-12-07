@@ -10,7 +10,7 @@ const Signin = async () => {
   });
 
   if (!!session) {
-    return redirect('/signin');
+    return redirect('/');
   }
 
   return <SigninView />;

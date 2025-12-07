@@ -35,7 +35,7 @@ export const DashboardUserButton = () => {
     authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          router.push('/sign-in');
+          router.push('/signin');
         },
         onError: error => {
           console.error('Logout failed:', error);
