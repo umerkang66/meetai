@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
+import type { SearchParams } from 'nuqs/server';
 
 import { getQueryClient, trpc } from '@/trpc/server';
 import { auth } from '@/lib/auth';
@@ -13,7 +14,7 @@ import {
   MeetingsViewError,
   MeetingsViewLoading,
 } from '@/modules/meetings/ui/views/meetings-view';
-import type { SearchParams } from 'nuqs/server';
+import { MeetingsListHeader } from '@/modules/meetings/ui/components/meetings-list-header';
 
 interface Props {
   searchParams: Promise<SearchParams>;
@@ -36,13 +37,16 @@ const Page = async ({ searchParams }: Props) => {
   );
 
   return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <Suspense fallback={<MeetingsViewLoading />}>
-        <ErrorBoundary fallback={<MeetingsViewError />}>
-          <MeetingsView />
-        </ErrorBoundary>
-      </Suspense>
-    </HydrationBoundary>
+    <>
+      <MeetingsListHeader />
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <Suspense fallback={<MeetingsViewLoading />}>
+          <ErrorBoundary fallback={<MeetingsViewError />}>
+            <MeetingsView />
+          </ErrorBoundary>
+        </Suspense>
+      </HydrationBoundary>
+    </>
   );
 };
 

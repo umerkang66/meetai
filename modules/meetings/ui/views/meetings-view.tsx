@@ -1,13 +1,19 @@
 'use client';
 
-import { ErrorState } from '@/components/error-state';
-import { LoadingState } from '@/components/loading-state';
-import { useTRPC } from '@/trpc/client';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
+import { ErrorState } from '@/components/error-state';
+import { LoadingState } from '@/components/loading-state';
+import { useAgentFilters } from '@/modules/agents/hooks/use-agents-filters';
+import { useTRPC } from '@/trpc/client';
+
 export const MeetingsView = () => {
+  const [filters] = useAgentFilters();
+
   const trpc = useTRPC();
-  const { data } = useSuspenseQuery(trpc.meetings.getMany.queryOptions({}));
+  const { data } = useSuspenseQuery(
+    trpc.meetings.getMany.queryOptions({ ...filters })
+  );
 
   return <div>{JSON.stringify(data, null, 2)}</div>;
 };
