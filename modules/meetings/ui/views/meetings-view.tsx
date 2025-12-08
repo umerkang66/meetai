@@ -6,6 +6,9 @@ import { ErrorState } from '@/components/error-state';
 import { LoadingState } from '@/components/loading-state';
 import { useAgentFilters } from '@/modules/agents/hooks/use-agents-filters';
 import { useTRPC } from '@/trpc/client';
+import { DataTable } from '@/components/data-table';
+import { columns } from '../components/columns';
+import { EmptyState } from '@/components/empty-state';
 
 export const MeetingsView = () => {
   const [filters] = useAgentFilters();
@@ -15,7 +18,18 @@ export const MeetingsView = () => {
     trpc.meetings.getMany.queryOptions({ ...filters })
   );
 
-  return <div>{JSON.stringify(data, null, 2)}</div>;
+  return (
+    <div className="flex-1 pb-4 px-4 md:px-8 flex flex-col gap-y-4">
+      <DataTable data={data.items} columns={columns} />
+
+      {data.items.length === 0 && (
+        <EmptyState
+          title="Create your first meeting"
+          description="Create an meeting to video call with AI."
+        />
+      )}
+    </div>
+  );
 };
 
 export const MeetingsViewLoading = () => {
