@@ -13,7 +13,7 @@ import {
   AgentsViewLoading,
 } from '@/modules/agents/ui/views/agents-view';
 import { AgentsListHeader } from '@/modules/agents/ui/components/agent-list-header';
-import { loadSearchParams } from '@/modules/agents/params';
+import { loadSearchParams } from '@/lib/params';
 
 interface Props {
   searchParams: Promise<SearchParams>;
