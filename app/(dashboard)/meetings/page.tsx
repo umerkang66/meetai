@@ -7,7 +7,7 @@ import type { SearchParams } from 'nuqs/server';
 
 import { getQueryClient, trpc } from '@/trpc/server';
 import { auth } from '@/lib/auth';
-import { loadSearchParams } from '@/lib/params';
+import { loadSearchParams } from '@/modules/meetings/params';
 
 import {
   MeetingsView,
