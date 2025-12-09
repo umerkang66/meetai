@@ -10,20 +10,11 @@ import {
   LoaderIcon,
 } from 'lucide-react';
 import { format } from 'date-fns';
-import humanizeDuration from 'humanize-duration';
 
 import { GeneratedAvatar } from '@/components/generated-avatar';
 import { Badge } from '@/components/ui/badge';
 import { MeetingGetMany } from '../../types';
-import { cn } from '@/lib/utils';
-
-function formatDuration(seconds: number) {
-  return humanizeDuration(seconds * 1000, {
-    largest: 1,
-    round: true,
-    units: ['h', 'm', 's'],
-  });
-}
+import { cn, formatDuration } from '@/lib/utils';
 
 const statusIconMap = {
   upcoming: ClockArrowUpIcon,
