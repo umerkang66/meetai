@@ -3,7 +3,7 @@ import Image from 'next/image';
 interface Props {
   title: string;
   description: string;
-  image: string;
+  image?: string;
 }
 
 export const EmptyState = ({
