@@ -93,7 +93,8 @@ export async function POST(req: NextRequest) {
     });
 
     realtimeClient.updateSession({
-      instructions: existingAgent.instructions ?? '',
+      instructions:
+        existingAgent.instructions ?? 'You are a helpful voice assistant.',
     });
   } else if (eventType === 'call.session_participant_left') {
     const event = payload as CallSessionParticipantLeftEvent;
