@@ -7,7 +7,7 @@ import type { SearchParams } from 'nuqs/server';
 
 import { getQueryClient, trpc } from '@/trpc/server';
 import { auth } from '@/lib/auth';
-import { loadSearchParams } from '@/modules/meetings/params';
+import { loadMeetingsFilterParams } from '@/modules/meetings/params';
 
 import {
   MeetingsView,
@@ -29,7 +29,7 @@ const Page = async ({ searchParams }: Props) => {
     return redirect('/signin');
   }
 
-  const filters = await loadSearchParams(searchParams);
+  const filters = await loadMeetingsFilterParams(searchParams);
 
   const queryClient = getQueryClient();
   await queryClient.prefetchQuery(

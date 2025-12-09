@@ -7,7 +7,7 @@ import {
 import { DEFAULT_PAGE } from '@/constants';
 import { MeetingStatus } from './types';
 
-export const filterSearchParams = {
+export const meetingsFilterSearchParams = {
   search: parseAsString.withDefault('').withOptions({ clearOnDefault: true }),
   page: parseAsInteger
     .withDefault(DEFAULT_PAGE)
@@ -16,4 +16,6 @@ export const filterSearchParams = {
   agentId: parseAsString.withDefault('').withOptions({ clearOnDefault: true }),
 };
 
-export const loadSearchParams = createLoader(filterSearchParams);
+export const loadMeetingsFilterParams = createLoader(
+  meetingsFilterSearchParams
+);
