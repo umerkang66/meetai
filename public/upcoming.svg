@@ -12,10 +12,9 @@
 <!-- Light gray background box -->
 <rect x="20" y="45" width="34" height="34" rx="6" fill="#F5F6F6"/>
 
-<!-- Cancelled Icon (Circle with X inside) -->
-<circle cx="37" cy="62" r="8" fill="#EDF3F3"/>
-<path d="M33.5 58.5L40.5 65.5" stroke="#B0B3B2" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M40.5 58.5L33.5 65.5" stroke="#B0B3B2" stroke-width="1.5" stroke-linecap="round"/>
+<!-- Perfectly Centered Video Camera Icon -->
+<rect x="28.5" y="56" width="13" height="10" rx="2" fill="#B0B3B2"/>
+<path d="M41.5 58L45.5 56V66L41.5 64V58Z" fill="#B0B3B2"/>
 
 <!-- Lines -->
 <rect x="63" y="49" width="72" height="4" rx="2" fill="#17A34A"/>
