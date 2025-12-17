@@ -9,7 +9,7 @@ interface EmptyStateProps {
 export const EmptyState = ({
   title,
   description,
-  image = '/empty.jpg',
+  image = '/empty.svg',
 }: EmptyStateProps) => {
   return (
     <div className="flex flex-col items-center justify-center">

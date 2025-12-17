@@ -11,7 +11,7 @@ export const UpcomingState = ({ meetingId }: UpcomingStateProps) => {
   return (
     <div className="bg-white rounded-lg px-4 py-5 flex flex-col gap-y-8 items-center justify-center">
       <EmptyState
-        image="/empty.jpg"
+        image="/empty.svg"
         title="Not started yet"
         description="Once you start this meeting, asummary will appear here"
       />
