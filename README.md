@@ -31,7 +31,7 @@ Engage with your meeting data through an intelligent chat interface to quickly f
 - **Authentication:** [Better Auth](https://www.better-auth.com/)
 - **Real-time Video:** [Stream IO](https://getstream.io/)
 - **AI Agents:** [Inngest](https://www.inngest.com/) & [OpenAI](https://openai.com/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/) & [Chad CN](https://chadcn.com/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) & [Chad CN](https://ui.shadcn.com/)
 
 ## 🚀 Getting Started
 
